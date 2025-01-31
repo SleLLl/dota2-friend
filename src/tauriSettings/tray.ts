@@ -1,10 +1,11 @@
-import { isTauri } from '@tauri-apps/api/core';
 import { Menu } from '@tauri-apps/api/menu';
 import { TrayIcon } from '@tauri-apps/api/tray';
 import { Window } from '@tauri-apps/api/window';
 import { relaunch } from '@tauri-apps/plugin-process';
 
-if (isTauri()) {
+import { withTauri } from '../utils/withTauri.ts';
+
+const setup = withTauri(async () => {
   const menu = await Menu.new({
     items: [
       {
@@ -77,4 +78,6 @@ if (isTauri()) {
   };
 
   await TrayIcon.new(options);
-}
+});
+
+setup();

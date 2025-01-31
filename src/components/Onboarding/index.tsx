@@ -9,7 +9,7 @@ const Onboarding = () => {
   const setIsUserOnboarded = useAppStore((state) => state.setIsUserOnboarded);
 
   const onFinish = () => {
-    // setIsUserOnboarded(false);
+    setIsUserOnboarded(false);
   };
 
   return (

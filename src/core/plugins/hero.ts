@@ -32,7 +32,7 @@ class Hero {
           console.log('Closest position:', value);
         }),
       )
-      .subscribe((position) => this.position.next(position.kind));
+      .subscribe((position) => this.position.next(position.kind as string));
 
     fromEvent(gsiParser.emitter, 'newdata')
       .pipe(

@@ -1,7 +1,8 @@
-import { isTauri } from '@tauri-apps/api/core';
 import { CloseRequestedEvent, Window } from '@tauri-apps/api/window';
 
-if (isTauri()) {
+import { withTauri } from '../utils/withTauri.ts';
+
+const setup = withTauri(async () => {
   const appWindow = new Window('main');
 
   appWindow.listen<CloseRequestedEvent>('tauri://close-requested', async () => {
@@ -19,4 +20,6 @@ if (isTauri()) {
       await appWindow.destroy();
     }
   });
-}
+});
+
+setup();
