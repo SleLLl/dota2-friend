@@ -3,6 +3,7 @@ import { TrayIcon } from '@tauri-apps/api/tray';
 import { Window } from '@tauri-apps/api/window';
 import { relaunch } from '@tauri-apps/plugin-process';
 
+import { windowSetupForNotificationLayoutSettings } from '../components/NotificationLayoutSettings/windowSetup.ts';
 import { withTauri } from '../utils/withTauri.ts';
 
 const setup = withTauri(async () => {
@@ -19,11 +20,7 @@ const setup = withTauri(async () => {
             to: '/notification-layout-settings',
           });
 
-          await Promise.all([
-            appWindow.setDecorations(true),
-            appWindow.maximize(),
-            appWindow.setIgnoreCursorEvents(false),
-          ]);
+          await windowSetupForNotificationLayoutSettings();
 
           await appWindow.show();
         },

@@ -20,7 +20,9 @@
         "center": true,
         "alwaysOnTop": false,
         "skipTaskbar": false,
-        "shadow": false
+        "shadow": false,
+        "height": 800,
+        "width": 1000
       }
     ],
     "security": {
@@ -31,9 +33,9 @@
     "active": true,
     "createUpdaterArtifacts": true,
     "targets": "all",
-    "publisher": "Unknown Publisher",
+    "publisher": "Siarhei Kaliaha",
     "copyright": "Copyright Notice",
-    "category": "Gaming",
+    "category": "Game",
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",

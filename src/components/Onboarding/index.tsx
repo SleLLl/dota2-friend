@@ -1,16 +1,62 @@
-import { Button, Flex, Steps } from 'antd';
+import { useNavigate } from '@tanstack/react-router';
+import { CollapseProps, Divider } from "antd";
+import { Button, Collapse, Flex, Steps } from 'antd';
 import { useState } from 'react';
 
+import propertiesImg from '../../assets/dota2-properties.png';
+import gameParamsImg from '../../assets/game-params.png';
 import { useAppStore } from '../../store/app.ts';
+import { windowSetupForNotificationLayoutSettings } from '../NotificationLayoutSettings/windowSetup.ts';
 import styles from './styles.module.scss';
 
 const Onboarding = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const navigate = useNavigate();
   const setIsUserOnboarded = useAppStore((state) => state.setIsUserOnboarded);
 
   const onFinish = () => {
-    setIsUserOnboarded(false);
+    setIsUserOnboarded(true);
+    windowSetupForNotificationLayoutSettings();
+    navigate({
+      to: '/notification-layout-settings',
+    });
   };
+
+  const items: CollapseProps['items'] = [
+    {
+      key: '1',
+      label: 'Open the Steam client',
+      children: <p>Open the Steam client</p>,
+    },
+    {
+      key: '2',
+      label: 'Click on Library, right click Dota 2 & select Properties:',
+      children: (
+        <img className={styles.img} src={propertiesImg} alt="how to find Properties" />
+      ),
+    },
+    {
+      key: '3',
+      label: 'Go to General tab',
+      children: <p>Go to General tab</p>,
+    },
+    {
+      key: '4',
+      label: 'Under Launch Options add the following command line: -gamestateintegration',
+      children: (
+        <img
+          className={styles.img}
+          src={gameParamsImg}
+          alt="how to set gamestateintegration"
+        />
+      ),
+    },
+    {
+      key: '5',
+      label: 'Then relaunch Steam to save these settings.',
+      children: <p>Then relaunch Steam to save these settings.</p>,
+    },
+  ];
 
   return (
     <main className={styles.container}>
@@ -55,8 +101,8 @@ const Onboarding = () => {
             <div className="section">
               <h2>1. Introduction</h2>
               <p>
-                Welcome to Dota 2 friend ("the App"), an independent tool designed to
-                assist players of <em>Dota 2</em> with gameplay timing reminders and
+                Welcome to Dota 2 friend (&#34;the App&#34;), an independent tool designed
+                to assist players of <em>Dota 2</em> with gameplay timing reminders and
                 strategic suggestions. By using the App, you agree to these Terms.
                 Discontinue use if you disagree.
               </p>
@@ -69,7 +115,7 @@ const Onboarding = () => {
               </p>
               <ul>
                 <li>
-                  Valve's{' '}
+                  Valve&#39;s{' '}
                   <a
                     href="https://store.steampowered.com/legal/"
                     target="_blank"
@@ -103,7 +149,7 @@ const Onboarding = () => {
                       Cheat or manipulate <em>Dota 2</em> matches
                     </li>
                     <li>Automate gameplay decisions</li>
-                    <li>Violate Valve's rules</li>
+                    <li>Violate Valve&#39;s rules</li>
                   </ul>
                 </li>
               </ul>
@@ -121,10 +167,10 @@ const Onboarding = () => {
 
             <div className="section">
               <h2>6. Disclaimer</h2>
-              <p>THE APP IS PROVIDED "AS IS" WITH NO GUARANTEES. WE:</p>
+              <p>THE APP IS PROVIDED &#34;AS IS&#34; WITH NO GUARANTEES. WE:</p>
               <ul>
                 <li>Are not affiliated with Valve Corporation</li>
-                <li>Don't promise ranking improvements</li>
+                <li>Don&#39;t promise ranking improvements</li>
                 <li>Accept no liability for gameplay outcomes</li>
               </ul>
             </div>
@@ -176,8 +222,9 @@ const Onboarding = () => {
           align="center"
           vertical
           gap="middle">
-          <h1>The last step before we begin</h1>
-          <p>Configure the lunch params</p>
+          <h1>The last step before we start</h1>
+          <Divider orientation="center">Configure launch options</Divider>
+          <Collapse items={items} />
           <Flex gap="small">
             <Button type="text" onClick={() => setCurrentStep(1)}>
               Cancel
