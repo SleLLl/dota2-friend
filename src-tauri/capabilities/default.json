@@ -1,0 +1,61 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "opener:default",
+    "core:window:allow-set-ignore-cursor-events",
+    "core:window:allow-close",
+    "core:window:allow-set-decorations",
+    "core:window:allow-set-fullscreen",
+    "core:window:allow-maximize",
+    "core:window:allow-minimize",
+    "core:window:allow-set-always-on-top",
+    "core:window:allow-hide",
+    "core:window:allow-show",
+    "core:window:allow-destroy",
+    "core:window:allow-unmaximize",
+    "prevent-default:default",
+    "process:default",
+    "process:allow-restart",
+    "dialog:default",
+    "updater:default",
+    "fs:default",
+    {
+      "identifier": "fs:allow-exists",
+      "allow": [
+        {
+          "path": "**/game/dota/cfg/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-mkdir",
+      "allow": [
+        {
+          "path": "**/game/dota/cfg/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-create",
+      "allow": [
+        {
+          "path": "**/game/dota/cfg/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-write",
+      "allow": [
+        {
+          "path": "**/game/dota/cfg/**"
+        }
+      ]
+    }
+  ]
+}

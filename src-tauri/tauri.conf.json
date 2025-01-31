@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "dota2-friend",
+  "version": "../package.json",
+  "identifier": "com.dota2-friend.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Dota 2 friend",
+        "decorations": true,
+        "transparent": true,
+        "hiddenTitle": true,
+        "center": true,
+        "alwaysOnTop": false,
+        "skipTaskbar": false,
+        "shadow": false
+      }
+    ],
+    "security": {
+      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'; connect-src ipc: http://ipc.localhost"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "createUpdaterArtifacts": true,
+    "targets": "all",
+    "publisher": "Unknown Publisher",
+    "copyright": "Copyright Notice",
+    "category": "Gaming",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  },
+  "plugins": {
+    "updater": {
+      "active": true,
+      "endpoints": [
+        "https://github.com/SleLLl/dota2-friend/releases/latest/download/latest.json"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDcxMDcwREM0OUZFOEFGMzEKUldReHIraWZ4QTBIY1RCTWliTC84Z3FLNEc4UTUzdXVCdzdFNGlYaU9RM1lac2JjaE85S1gwdmQK"
+    }
+  }
+}

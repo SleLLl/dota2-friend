@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+  height: 100%;
+  background-image: url("./main-bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  overflow: auto;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 40px;
+}
