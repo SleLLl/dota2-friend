@@ -1,9 +1,15 @@
+import { Divider, Flex } from 'antd';
+
 import styles from './styles.module.scss';
 
 const Settings = () => {
   return (
     <main className={styles.container}>
-      <h1>settings</h1>
+      <Flex className={styles.overlay} align="flex-start">
+        <Divider orientation="center">
+          <h1>Settings</h1>
+        </Divider>
+      </Flex>
     </main>
   );
 };
