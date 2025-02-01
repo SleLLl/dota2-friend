@@ -12,10 +12,6 @@ const HomePage = () => {
   const isUserOnboarded = useAppStore((state) => state.isUserOnboarded);
   const navigate = useNavigate();
 
-  if (!isUserOnboarded) {
-    navigate({ to: '/onboarding' });
-  }
-
   useLayoutEffect(() => {
     const configure = withTauri(async () => {
       const appWindow = new Window('main');
@@ -25,6 +21,10 @@ const HomePage = () => {
         appWindow.setIgnoreCursorEvents(true),
       ]);
     });
+
+    if (!isUserOnboarded) {
+      navigate({ to: '/onboarding' });
+    }
 
     if (isUserOnboarded) {
       writeGSIFile();
