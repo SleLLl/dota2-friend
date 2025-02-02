@@ -40,6 +40,7 @@ export const useAppStore = create<State & Actions>()(
       }),
       {
         name: 'app-state',
+        version: 0,
       },
     ),
   ),

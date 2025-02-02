@@ -1,92 +1,74 @@
 name: Publish Release
 on:
-  push:
-    tags:
-      - 'v*'
-    branches: 'master'
   workflow_dispatch:
+  push:
     branches:
       - master
 
-env:
-  APP_NAME: "Dota 2 friend"
-
 jobs:
-  changelog:
+  release-management:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Build changelog
-        id: build_changelog
-        run: |
-          PREV_TAG=$(git tag --list v* | tail -n2 | head -n1)
-          echo "changelog=$(git log $PREV_TAG...${{ github.ref_name }} --pretty=format:'- %s')" >> $GITHUB_OUTPUT
     outputs:
-      changelog: ${{ steps.build_changelog.outputs.changelog }}
-
-  release:
-    runs-on: windows-latest
-    needs: [changelog]
+      new-version: ${{ steps.semantic-release.outputs.new-version }}
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      # Setup Node.js and use npm
-      - name: Setup Node.js
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v3
+        id: semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+            @semantic-release/exec
+          dry_run: false
+
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.release-management.outputs.new-tag }}
+
+      - name: setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
-          cache: npm
+          node-version: lts/*
+          cache: 'npm'
 
-      - name: Install Rust stable
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
+      - name: install Rust stable
+        uses: dtolnay/rust-toolchain@stable # Set this to dtolnay/rust-toolchain@nightly
 
       - name: Rust cache
-        uses: actions/cache@v4
+        uses: swatinem/rust-cache@v2
         with:
-          path: |
-            target
-            ~/.cargo
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-cargo-
+          workspaces: './src-tauri -> target'' # Set this to npm, yarn or pnpm.
 
-      - name: Install frontend dependencies
-        run: |
-          npm install
+      - name: Install dependencies
+        run: npm install
 
-      - name: Build Tauri app
-        run: |
-          npm run tauri build
+      - name: Build Windows installer
+        run: npm run tauri build
         env:
-          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY  }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
 
-      - name: Upload Windows Installers
-        uses: actions/upload-artifact@v4
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v2
         with:
-          name: 'Windows Installers'
-          path: |
-            src-tauri/release/bundle/msi/*.msi
-            src-tauri/release/bundle/nsis/*.exe
-
-      - name: Publish GitHub Release
-        uses: tauri-apps/tauri-action@v0
+          body_path: CHANGELOG.md
+          tag_name: ${{ needs.release-management.outputs.new-tag }}
+          files: |
+            src-tauri/target/release/bundle/msi/APP_NAME_*_x64_en-US.msi
+            src-tauri/target/release/bundle/msi/APP_NAME_*_x64_en-US.msi.sig
+            src-tauri/target/release/bundle/nsis/APP_NAME_*_x64_en-US.exe
+            src-tauri/target/release/bundle/nsis/APP_NAME_*_x64_en-US.exe.sig
+            src-tauri/target/release/latest.json
         env:
-          CI: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
-          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
-        with:
-          tagName: ${{ github.ref_name }}
-          releaseName: "${{ env.APP_NAME }} v__VERSION__"
-          releaseBody: |
-            ${{ needs.changelog.outputs.changelog }}
-            See the assets to download this version and install.
-          releaseDraft: true
-          prerelease: false

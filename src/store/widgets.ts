@@ -150,6 +150,7 @@ export const useWidgetsStore = create<Store>()(
       }),
       {
         name: 'widget-state',
+        version: 0,
       },
     ),
   ),

@@ -1,0 +1,42 @@
+Elastic License 2.0
+
+Copyright (c) [2025] [SleLLl] ("Licensor")
+
+Use of this software is granted under the terms of the Elastic License 2.0 (ELv2).
+You may not use this software except in compliance with the ELv2.
+
+https://www.elastic.co/licensing/elastic-license
+
+----------------------------------------
+
+ELASTIC LICENSE 2.0
+
+1. Definitions
+   "Licensor" means the copyright owner(s) of the Software.
+   "Software" means the copyrighted work licensed under this agreement.
+
+2. License Grant
+   Subject to your compliance with these terms, Licensor grants you a non-exclusive,
+   royalty-free license to:
+- Use the Software
+- Modify the Software
+- Redistribute the Software **only if**:
+  a) You don’t provide the Software as a managed service
+  b) You don’t circumvent technical limitations in the Software
+  c) You include this license and all copyright notices
+
+3. Restrictions
+   You may not:
+- Offer the Software as a SaaS/Managed Service
+- Circumvent license key mechanisms
+- Remove licensing headers
+
+4. Trademarks: This license doesn’t grant rights to use Licensor’s trademarks.
+
+5. Termination: Rights end automatically if you violate these terms.
+
+6. Disclaimer: Software provided "AS IS" without warranties.
+
+7. Limitation of Liability: Licensor not liable for damages.
+
+----------------------------------------
