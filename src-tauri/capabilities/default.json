@@ -19,6 +19,7 @@
     "core:window:allow-show",
     "core:window:allow-destroy",
     "core:window:allow-unmaximize",
+    "core:app:allow-default-window-icon",
     "prevent-default:default",
     "process:default",
     "process:allow-restart",

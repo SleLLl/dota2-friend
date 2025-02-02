@@ -1,3 +1,4 @@
+import { defaultWindowIcon } from '@tauri-apps/api/app';
 import { Menu } from '@tauri-apps/api/menu';
 import { TrayIcon } from '@tauri-apps/api/tray';
 import { Window } from '@tauri-apps/api/window';
@@ -66,7 +67,7 @@ const setup = withTauri(async () => {
   const options = {
     menu,
     menuOnLeftClick: true,
-    icon: 'icons/32x32.png',
+    icon: (await defaultWindowIcon()) ?? undefined,
     tooltip: 'Dota 2 friend',
   };
 
