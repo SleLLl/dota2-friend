@@ -48,7 +48,7 @@ jobs:
       - name: Rust cache
         uses: swatinem/rust-cache@v2
         with:
-          workspaces: './src-tauri -> target'' # Set this to npm, yarn or pnpm.
+          workspaces: './src-tauri -> target' # Set this to npm, yarn or pnpm.
 
       - name: Install dependencies
         run: npm install
