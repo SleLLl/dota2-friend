@@ -7,6 +7,10 @@ on:
 
 jobs:
   release-management:
+    permissions:
+      contents: write  # Needed for pushing tags and commits
+      issues: write    # Needed for creating GitHub issues
+      pull-requests: write  # Needed for updating PRs
     runs-on: ubuntu-latest
     outputs:
       new-version: ${{ steps.semantic-release.outputs.new-version }}
@@ -28,6 +32,8 @@ jobs:
 
   build-windows:
     runs-on: windows-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
