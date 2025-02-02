@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/SleLLl/dota2-friend/compare/v1.0.0...v1.0.1) (2025-02-02)
+
+
+### Bug Fixes
+
+* pipeline update semantic release ([7450f88](https://github.com/SleLLl/dota2-friend/commit/7450f8848631089c86da3e69d7e096d8f0b14bc6))
+
 # 1.0.0 (2025-02-02)
 
 
