@@ -13,7 +13,7 @@ jobs:
       pull-requests: write  # Needed for updating PRs
     runs-on: ubuntu-latest
     outputs:
-      new-version: ${{ steps.semantic-release.outputs.new-version }}
+      new_release_git_tag: ${{ steps.semantic-release.outputs.new_release_git_tag }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,13 +32,14 @@ jobs:
 
   build-windows:
     runs-on: windows-latest
+    needs: release-management
     permissions:
       contents: write
 
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ needs.release-management.outputs.new-tag }}
+          ref: ${{ needs.release-management.outputs.new_release_git_tag }}
 
       - name: setup node
         uses: actions/setup-node@v4
@@ -67,7 +68,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           body_path: CHANGELOG.md
-          tag_name: ${{ needs.release-management.outputs.new-tag }}
+          tag_name: ${{ needs.release-management.outputs.new_release_git_tag }}
           files: |
             src-tauri/target/release/bundle/msi/APP_NAME_*_x64_en-US.msi
             src-tauri/target/release/bundle/msi/APP_NAME_*_x64_en-US.msi.sig
