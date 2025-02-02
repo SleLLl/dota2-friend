@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/SleLLl/dota2-friend/compare/v1.0.1...v1.0.2) (2025-02-02)
+
+
+### Bug Fixes
+
+* test updating package json version ([9c4cb9a](https://github.com/SleLLl/dota2-friend/commit/9c4cb9a80750a9d5fdc3a35c131b90b01bf4dca5))
+
 ## [1.0.1](https://github.com/SleLLl/dota2-friend/compare/v1.0.0...v1.0.1) (2025-02-02)
 
 
