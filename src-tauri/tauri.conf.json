@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "dota2-friend",
+  "productName": "Dota 2 friend",
   "version": "../package.json",
   "identifier": "com.dota2-friend.app",
   "build": {
@@ -22,11 +22,12 @@
         "skipTaskbar": false,
         "shadow": false,
         "height": 800,
-        "width": 1000
+        "width": 1000,
+        "devtools": true
       }
     ],
     "security": {
-      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'; connect-src ipc: http://ipc.localhost"
+      "csp": null
     }
   },
   "bundle": {

@@ -4,6 +4,7 @@ import { Window } from '@tauri-apps/api/window';
 import { relaunch } from '@tauri-apps/plugin-process';
 
 import { windowSetupForNotificationLayoutSettings } from '../components/NotificationLayoutSettings/windowSetup.ts';
+import { router } from '../router.ts';
 import { withTauri } from '../utils/withTauri.ts';
 
 const setup = withTauri(async () => {
@@ -13,25 +14,20 @@ const setup = withTauri(async () => {
         id: 'notification-layout-settings',
         text: 'Notification layout settings',
         action: async () => {
-          const module = await import('../app.tsx');
-          const appWindow = new Window('main');
-
-          await module.router.navigate({
+          await router.navigate({
             to: '/notification-layout-settings',
           });
 
           await windowSetupForNotificationLayoutSettings();
 
-          await appWindow.show();
+          await new Window('main').show();
         },
       },
       {
         id: 'settings',
         text: 'Settings',
         action: async () => {
-          const module = await import('../app.tsx');
-
-          await module.router.navigate({
+          await router.navigate({
             to: '/settings',
           });
 

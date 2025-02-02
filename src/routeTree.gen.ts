@@ -10,11 +10,11 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as SettingsImport } from './routes/settings'
-import { Route as OnboardingImport } from './routes/onboarding'
-import { Route as NotificationLayoutSettingsImport } from './routes/notification-layout-settings'
-import { Route as IndexImport } from './routes/index'
+import { Route as rootRoute } from './routes/__root';
+import { Route as SettingsImport } from './routes/settings';
+import { Route as OnboardingImport } from './routes/onboarding';
+import { Route as NotificationLayoutSettingsImport } from './routes/notification-layout-settings';
+import { Route as IndexImport } from './routes/index';
 
 // Create/Update Routes
 
@@ -22,106 +22,99 @@ const SettingsRoute = SettingsImport.update({
   id: '/settings',
   path: '/settings',
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
 const OnboardingRoute = OnboardingImport.update({
   id: '/onboarding',
   path: '/onboarding',
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
-const NotificationLayoutSettingsRoute = NotificationLayoutSettingsImport.update(
-  {
-    id: '/notification-layout-settings',
-    path: '/notification-layout-settings',
-    getParentRoute: () => rootRoute,
-  } as any,
-)
+const NotificationLayoutSettingsRoute = NotificationLayoutSettingsImport.update({
+  id: '/notification-layout-settings',
+  path: '/notification-layout-settings',
+  getParentRoute: () => rootRoute,
+} as any);
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/';
+      path: '/';
+      fullPath: '/';
+      preLoaderRoute: typeof IndexImport;
+      parentRoute: typeof rootRoute;
+    };
     '/notification-layout-settings': {
-      id: '/notification-layout-settings'
-      path: '/notification-layout-settings'
-      fullPath: '/notification-layout-settings'
-      preLoaderRoute: typeof NotificationLayoutSettingsImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/notification-layout-settings';
+      path: '/notification-layout-settings';
+      fullPath: '/notification-layout-settings';
+      preLoaderRoute: typeof NotificationLayoutSettingsImport;
+      parentRoute: typeof rootRoute;
+    };
     '/onboarding': {
-      id: '/onboarding'
-      path: '/onboarding'
-      fullPath: '/onboarding'
-      preLoaderRoute: typeof OnboardingImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/onboarding';
+      path: '/onboarding';
+      fullPath: '/onboarding';
+      preLoaderRoute: typeof OnboardingImport;
+      parentRoute: typeof rootRoute;
+    };
     '/settings': {
-      id: '/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof SettingsImport
-      parentRoute: typeof rootRoute
-    }
+      id: '/settings';
+      path: '/settings';
+      fullPath: '/settings';
+      preLoaderRoute: typeof SettingsImport;
+      parentRoute: typeof rootRoute;
+    };
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/notification-layout-settings': typeof NotificationLayoutSettingsRoute
-  '/onboarding': typeof OnboardingRoute
-  '/settings': typeof SettingsRoute
+  '/': typeof IndexRoute;
+  '/notification-layout-settings': typeof NotificationLayoutSettingsRoute;
+  '/onboarding': typeof OnboardingRoute;
+  '/settings': typeof SettingsRoute;
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/notification-layout-settings': typeof NotificationLayoutSettingsRoute
-  '/onboarding': typeof OnboardingRoute
-  '/settings': typeof SettingsRoute
+  '/': typeof IndexRoute;
+  '/notification-layout-settings': typeof NotificationLayoutSettingsRoute;
+  '/onboarding': typeof OnboardingRoute;
+  '/settings': typeof SettingsRoute;
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/notification-layout-settings': typeof NotificationLayoutSettingsRoute
-  '/onboarding': typeof OnboardingRoute
-  '/settings': typeof SettingsRoute
+  __root__: typeof rootRoute;
+  '/': typeof IndexRoute;
+  '/notification-layout-settings': typeof NotificationLayoutSettingsRoute;
+  '/onboarding': typeof OnboardingRoute;
+  '/settings': typeof SettingsRoute;
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/notification-layout-settings' | '/onboarding' | '/settings'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/notification-layout-settings' | '/onboarding' | '/settings'
-  id:
-    | '__root__'
-    | '/'
-    | '/notification-layout-settings'
-    | '/onboarding'
-    | '/settings'
-  fileRoutesById: FileRoutesById
+  fileRoutesByFullPath: FileRoutesByFullPath;
+  fullPaths: '/' | '/notification-layout-settings' | '/onboarding' | '/settings';
+  fileRoutesByTo: FileRoutesByTo;
+  to: '/' | '/notification-layout-settings' | '/onboarding' | '/settings';
+  id: '__root__' | '/' | '/notification-layout-settings' | '/onboarding' | '/settings';
+  fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  NotificationLayoutSettingsRoute: typeof NotificationLayoutSettingsRoute
-  OnboardingRoute: typeof OnboardingRoute
-  SettingsRoute: typeof SettingsRoute
+  IndexRoute: typeof IndexRoute;
+  NotificationLayoutSettingsRoute: typeof NotificationLayoutSettingsRoute;
+  OnboardingRoute: typeof OnboardingRoute;
+  SettingsRoute: typeof SettingsRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -129,11 +122,11 @@ const rootRouteChildren: RootRouteChildren = {
   NotificationLayoutSettingsRoute: NotificationLayoutSettingsRoute,
   OnboardingRoute: OnboardingRoute,
   SettingsRoute: SettingsRoute,
-}
+};
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
 /* ROUTE_MANIFEST_START
 {
