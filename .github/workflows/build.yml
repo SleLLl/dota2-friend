@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       new_release_git_tag: ${{ steps.semantic-release.outputs.new_release_git_tag }}
+      release_body: ${{ steps.semantic-release.outputs.new_release_notes }}  # Output release body from Semantic Release
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -58,22 +59,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Windows installer
-        run: npm run tauri build
+      - name: Build and Release Tauri App
+        uses: tauri-apps/tauri-action@v0
         env:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY  }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
-
-      - name: Upload release assets
-        uses: softprops/action-gh-release@v2
-        with:
-          body_path: CHANGELOG.md
-          tag_name: ${{ needs.release-management.outputs.new_release_git_tag }}
-          files: |
-            src-tauri/target/release/bundle/msi/APP_NAME_*_x64_en-US.msi
-            src-tauri/target/release/bundle/msi/APP_NAME_*_x64_en-US.msi.sig
-            src-tauri/target/release/bundle/nsis/APP_NAME_*_x64_en-US.exe
-            src-tauri/target/release/bundle/nsis/APP_NAME_*_x64_en-US.exe.sig
-            src-tauri/target/release/latest.json
-        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ needs.release-management.outputs.new_release_git_tag }}
+          releaseName: 'Dota 2 friend ${{ needs.release-management.outputs.new_release_git_tag }}'
+          releaseBody: ${{ needs.release-management.outputs.release_body }}  # Pass release body here
+          releaseDraft: false
+          prerelease: false
