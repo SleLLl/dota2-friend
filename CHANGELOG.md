@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/SleLLl/dota2-friend/compare/v1.0.2...v1.0.3) (2025-02-02)
+
+
+### Bug Fixes
+
+* update pipeline build step ([918ba38](https://github.com/SleLLl/dota2-friend/commit/918ba38642a975368652a919593e34a1c09dd4fb))
+
 ## [1.0.2](https://github.com/SleLLl/dota2-friend/compare/v1.0.1...v1.0.2) (2025-02-02)
 
 
