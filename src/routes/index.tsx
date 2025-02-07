@@ -1,16 +1,16 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 import { Window } from '@tauri-apps/api/window';
 import { useLayoutEffect } from 'react';
 
 import GameModeLayout from '../components/GameModeLayout';
 import { useAppStore } from '../store/app.ts';
+import { beforeLoadGuard } from '../utils/beforeLoadGuard.ts';
 import { checkForAppUpdates } from '../utils/updater.ts';
 import { withTauri } from '../utils/withTauri.ts';
 import { writeGSIFile } from '../utils/writeGSIFile.ts';
 
 const HomePage = () => {
   const isUserOnboarded = useAppStore((state) => state.isUserOnboarded);
-  const navigate = useNavigate();
 
   useLayoutEffect(() => {
     const configure = withTauri(async () => {
@@ -21,10 +21,6 @@ const HomePage = () => {
         appWindow.setIgnoreCursorEvents(true),
       ]);
     });
-
-    if (!isUserOnboarded) {
-      navigate({ to: '/onboarding' });
-    }
 
     if (isUserOnboarded) {
       writeGSIFile();
@@ -39,4 +35,5 @@ const HomePage = () => {
 
 export const Route = createFileRoute('/')({
   component: HomePage,
+  beforeLoad: beforeLoadGuard,
 });
