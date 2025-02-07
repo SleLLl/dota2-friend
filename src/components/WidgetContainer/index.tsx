@@ -42,7 +42,7 @@ const WidgetContainer = (props: WidgetContainerProps) => {
       position={widgetData.position}
       disabled={isResizing || !isEditable}
       onStop={(_, data) => setWidgetPosition(id, { x: data.x, y: data.y })}>
-      <div className={styles.wrapper} ref={nodeRef}>
+      <div id={id} className={styles.wrapper} ref={nodeRef}>
         <ResizableBox
           handle={isEditable ? undefined : () => <div></div>}
           width={widgetData.size.width}

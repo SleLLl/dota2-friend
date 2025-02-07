@@ -3,6 +3,7 @@ import { devtools, persist } from 'zustand/middleware';
 
 type State = {
   isUserOnboarded: boolean;
+  isNotificationLayoutTourWasShown: boolean;
   isGSIsWritten: boolean;
   disableSounds: boolean;
   disableNotifications: boolean;
@@ -10,6 +11,7 @@ type State = {
 
 type Actions = {
   setIsUserOnboarded: (value: boolean) => void;
+  setIsNotificationLayoutTourWasShown: (value: boolean) => void;
   setDisableSounds: (value: boolean) => void;
   setIsGSIsWritten: (value: boolean) => void;
   setDisableNotifications: (value: boolean) => void;
@@ -18,6 +20,7 @@ type Actions = {
 
 const initialState: State = {
   isUserOnboarded: false,
+  isNotificationLayoutTourWasShown: false,
   isGSIsWritten: false,
   disableSounds: false,
   disableNotifications: false,
@@ -30,6 +33,9 @@ export const useAppStore = create<State & Actions>()(
         ...initialState,
         setIsUserOnboarded: (value: boolean) => {
           set({ isUserOnboarded: value });
+        },
+        setIsNotificationLayoutTourWasShown: (value: boolean) => {
+          set({ isNotificationLayoutTourWasShown: value });
         },
         setDisableSounds: (value: boolean) => {
           set({ disableSounds: value });

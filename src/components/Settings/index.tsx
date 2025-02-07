@@ -143,7 +143,7 @@ const Settings = () => {
                       onChange={onDisableSound('creepsPulling')}
                     />
                   </Form.Item>
-                  <Form.Item label="Hidden">
+                  <Form.Item label="Enabled">
                     <Switch
                       value={widgetStore['creepsPulling'].show}
                       onChange={onShowChange('creepsPulling')}
@@ -170,7 +170,7 @@ const Settings = () => {
                       onChange={onDisableSound('stackCamp')}
                     />
                   </Form.Item>
-                  <Form.Item label="Hidden">
+                  <Form.Item label="Enabled">
                     <Switch
                       value={widgetStore['stackCamp'].show}
                       onChange={onShowChange('stackCamp')}
@@ -197,7 +197,7 @@ const Settings = () => {
                       onChange={onDisableSound('wisdom')}
                     />
                   </Form.Item>
-                  <Form.Item label="Hidden">
+                  <Form.Item label="Enabled">
                     <Switch
                       value={widgetStore['wisdom'].show}
                       onChange={onShowChange('wisdom')}
