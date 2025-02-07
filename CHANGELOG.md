@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/SleLLl/dota2-friend/compare/v1.0.3...v1.1.0) (2025-02-07)
+
+
+### Bug Fixes
+
+* disable browser shortcuts only in release mode ([22f9b50](https://github.com/SleLLl/dota2-friend/commit/22f9b505ee857c6841c5ef1947b5b22ac3b7856e))
+
+
+### Features
+
+* Add Bare Minimal UI to configure notifications ([97d4480](https://github.com/SleLLl/dota2-friend/commit/97d44808511f46fdd3e8d59ac781ba68633c9b23))
+* add before load guard ([1e998dc](https://github.com/SleLLl/dota2-friend/commit/1e998dcaf82d0da959f18d889a8dcbe95fd74a22))
+* Add Tour guide ([4cdc8a8](https://github.com/SleLLl/dota2-friend/commit/4cdc8a843866a5ac0189feb5dda23d47774b7128))
+
 ## [1.0.3](https://github.com/SleLLl/dota2-friend/compare/v1.0.2...v1.0.3) (2025-02-02)
 
 
