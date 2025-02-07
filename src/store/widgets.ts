@@ -14,6 +14,7 @@ type Position = {
 type WidgetsState = {
   [key: string]: {
     show: boolean;
+    disableSound: boolean;
     leadTime: number;
     position: Position;
     size: Size;
@@ -24,6 +25,7 @@ type Actions = {
   setWidgetSize: (id: string, value: Size) => void;
   setWidgetPosition: (id: string, value: Position) => void;
   setShowWidget: (id: string, value: boolean) => void;
+  setWidgetDisableSound: (id: string, value: boolean) => void;
   setWidgetLeadTime: (id: string, value: number) => void;
   reset: () => void;
 };
@@ -35,6 +37,7 @@ type Store = {
 const initialState: WidgetsState = {
   wisdom: {
     show: true,
+    disableSound: false,
     leadTime: 15,
     position: {
       x: 140,
@@ -47,6 +50,7 @@ const initialState: WidgetsState = {
   },
   stackCamp: {
     show: true,
+    disableSound: false,
     leadTime: 10,
     position: {
       x: 299,
@@ -59,6 +63,7 @@ const initialState: WidgetsState = {
   },
   creepsPulling: {
     show: true,
+    disableSound: false,
     leadTime: 10,
     position: {
       x: 449,
@@ -71,6 +76,7 @@ const initialState: WidgetsState = {
   },
   miniMap: {
     show: true,
+    disableSound: false,
     leadTime: 10,
     position: {
       x: 20,
@@ -83,6 +89,7 @@ const initialState: WidgetsState = {
   },
   performance: {
     show: true,
+    disableSound: false,
     leadTime: 10,
     position: {
       x: 20,
@@ -140,6 +147,17 @@ export const useWidgetsStore = create<Store>()(
               [id]: {
                 ...store.state[id],
                 leadTime: value,
+              },
+            },
+          }));
+        },
+        setWidgetDisableSound: (id: string, value: boolean) => {
+          set((store) => ({
+            state: {
+              ...store.state,
+              [id]: {
+                ...store.state[id],
+                disableSound: value,
               },
             },
           }));

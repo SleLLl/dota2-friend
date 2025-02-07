@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Subscription } from 'rxjs';
 
 import wisdomRuneImg from '../../assets/rune_of_wisdom.webp';
 import wisdomRune from '../../core/plugins/wisdomRune.ts';
@@ -18,20 +19,26 @@ const WisdomRuneWidget = (props: WisdomRuneWidgetProps) => {
   const id = 'wisdom';
 
   const showWisdomRuneWidget = useWidgetsStore((store) => store.state[id].show);
+  const isSoundWidgetDisabled = useWidgetsStore((store) => store.state[id].disableSound);
   const [isTimeToShow, trigger] = useTimeBasedAction({
     time: 3000,
     callback: () => {
-      SoundQueue.enqueue('/sounds/Pud_ability_hook_06_ru.mp3');
+      if (!isSoundWidgetDisabled)
+        SoundQueue.enqueue('/sounds/Pud_ability_hook_06_ru.mp3');
     },
   });
 
   const canShow = (showWisdomRuneWidget && isTimeToShow) || isEditable;
 
   useEffect(() => {
-    const subscription = wisdomRune.trigger.subscribe(() => trigger());
+    let subscription: Subscription | undefined;
+
+    if (showWisdomRuneWidget) {
+      subscription = wisdomRune.trigger.subscribe(() => trigger());
+    }
 
     return () => {
-      subscription.unsubscribe();
+      subscription?.unsubscribe?.();
     };
   }, []);
 

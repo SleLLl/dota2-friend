@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Subscription } from 'rxjs';
 
 import creepsImg from '../../assets/creeps.webp';
 import creepsPulling from '../../core/plugins/creepsPulling.ts';
@@ -18,22 +19,28 @@ const CreepsPullingWidget = (props: CreepsPullingWidgetProps) => {
   const id = 'creepsPulling';
 
   const showCreepsPullingWidget = useWidgetsStore((store) => store.state[id].show);
+  const isSoundWidgetDisabled = useWidgetsStore((store) => store.state[id].disableSound);
   const [isTimeToShow, trigger] = useTimeBasedAction({
     time: 3000,
     callback: () => {
-      SoundQueue.enqueue('/sounds/Pud_ability_hook_miss_03_ru.mp3');
+      if (!isSoundWidgetDisabled)
+        SoundQueue.enqueue('/sounds/Pud_ability_hook_miss_03_ru.mp3');
     },
   });
 
   const canShow = (showCreepsPullingWidget && isTimeToShow) || isEditable;
 
   useEffect(() => {
-    const subscription = creepsPulling.trigger.subscribe(() => trigger());
+    let subscription: Subscription | undefined;
+
+    if (showCreepsPullingWidget) {
+      subscription = creepsPulling.trigger.subscribe(() => trigger());
+    }
 
     return () => {
-      subscription.unsubscribe();
+      subscription?.unsubscribe?.();
     };
-  }, []);
+  }, [showCreepsPullingWidget]);
 
   if (!canShow) {
     return null;

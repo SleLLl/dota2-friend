@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Subscription } from 'rxjs';
 
 import stackCampImg from '../../assets/ancient_rock_golem.webp';
 import stackCamp from '../../core/plugins/stackCamp.ts';
@@ -18,22 +19,28 @@ const StackCampWidget = (props: StackCampWidgetProps) => {
   const id = 'stackCamp';
 
   const showStackCampWidget = useWidgetsStore((store) => store.state[id].show);
+  const isSoundWidgetDisabled = useWidgetsStore((store) => store.state[id].disableSound);
   const [isTimeToShow, trigger] = useTimeBasedAction({
     time: 3000,
     callback: () => {
-      SoundQueue.enqueue('/sounds/Pud_ability_hook_01_ru.mp3');
+      if (!isSoundWidgetDisabled)
+        SoundQueue.enqueue('/sounds/Pud_ability_hook_01_ru.mp3');
     },
   });
 
   const canShow = (showStackCampWidget && isTimeToShow) || isEditable;
 
   useEffect(() => {
-    const subscription = stackCamp.trigger.subscribe(() => trigger());
+    let subscription: Subscription | undefined;
+
+    if (showStackCampWidget) {
+      subscription = stackCamp.trigger.subscribe(() => trigger());
+    }
 
     return () => {
-      subscription.unsubscribe();
+      subscription?.unsubscribe?.();
     };
-  }, []);
+  }, [showStackCampWidget]);
 
   if (!canShow) {
     return null;

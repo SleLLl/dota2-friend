@@ -1,3 +1,4 @@
+import { useAppStore } from '../../store/app.ts';
 import CreepsPullingWidget from '../CreepsPullingWidget';
 import StackCampWidget from '../StackCampWidget';
 import WisdomRuneWidget from '../WisdomRuneWidget';
@@ -8,13 +9,18 @@ interface GameModeLayoutProps {
 }
 
 const GameModeLayout = (props: GameModeLayoutProps) => {
+  const disableNotifications = useAppStore((store) => store.disableNotifications);
   const { isEditable } = props;
 
   return (
     <div className={styles.container}>
-      <WisdomRuneWidget isEditable={isEditable} />
-      <StackCampWidget isEditable={isEditable} />
-      <CreepsPullingWidget isEditable={isEditable} />
+      {(!disableNotifications || isEditable) && (
+        <>
+          <WisdomRuneWidget isEditable={isEditable} />
+          <StackCampWidget isEditable={isEditable} />
+          <CreepsPullingWidget isEditable={isEditable} />
+        </>
+      )}
     </div>
   );
 };
