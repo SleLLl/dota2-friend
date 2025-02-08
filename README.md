@@ -11,7 +11,7 @@
 ### 🕒 Core Functionality (Available Now)
 - **⏱️ Precision Timers**  
   Never miss a key moment with alerts for:
-    - **Rune Spawns** (Bounty, Power, Wisdom, Water, Secret Shop)
+    - **Rune Spawns** (Wisdom)
     - **Neutral Creep Stacking & Pulling** (Dire/Radiant jungle timers)
     - **Lane Creep Equilibrium** (Pull timers for optimal lane control)
 - **📊 In-Game Overlay**  
@@ -37,22 +37,18 @@
 
 ## 📥 Installation
 
-### Prerequisites
-- [Rust](https://www.rust-lang.org/tools/install)
-- [Node.js](https://nodejs.org/) (v22+)
-- [Tauri Dependencies](https://tauri.app/start/prerequisites/)
+**[⬇️ Download Latest Release](https://github.com/SleLLl/dota2-friend/releases/latest)**
 
-### Quick Start
-```bash
-git clone https://github.com/SleLLl/dota2-friend.git
-cd dota2-friend
-npm install
-npm run tauri build
-```
+### Available Pre-Built Binaries
 
-**[⬇️ Download Latest Release](https://github.com/SleLLl/dota2-friend/releases)**  
-*(Pre-built binaries coming soon!)*
+- **Windows Installer (.exe)**: [Dota.2.friend_1.1.0_x64-setup.exe](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.0_x64-setup.exe)
+  - Signature: [Dota.2.friend_1.1.0_x64-setup.exe.sig](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.0_x64-setup.exe.sig)
+- **Windows MSI Package**: [Dota.2.friend_1.1.0_x64_en-US.msi](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.0_x64_en-US.msi)
+  - Signature: [Dota.2.friend_1.1.0_x64_en-US.msi.sig](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.0_x64_en-US.msi.sig)
 
+Check out previous versions [here](https://github.com/SleLLl/dota2-friend/releases).
+
+---
 
 ## 🖱️ Usage
 
@@ -60,12 +56,22 @@ npm run tauri build
 2. **Customize alerts** in settings (System tray ⚙️ > Dota 2 friend > Notifications layout settings)
 3. **Focus on gameplay** – let Dota 2 Friend handle the timings!
 
-![App Preview]()  
-*(Replace with actual screenshot)*
+---
+
+## ⚔️ App Preview
+<video width="320" height="240" controls>
+  <source src="/demo/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ---
 
 ## 🛠️ Development
+
+### Prerequisites
+- [Rust](https://www.rust-lang.org/tools/install)
+- [Node.js](https://nodejs.org/) (v22+)
+- [Tauri Dependencies](https://tauri.app/start/prerequisites/)
 
 Contributions welcome! Follow these steps:
 
