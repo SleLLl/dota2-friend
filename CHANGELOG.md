@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/SleLLl/dota2-friend/compare/v1.1.1...v1.1.2) (2025-02-08)
+
+
+### Bug Fixes
+
+* exit functionality ([a77a677](https://github.com/SleLLl/dota2-friend/commit/a77a677e85c899a51ebfbed01694594e9243d341))
+
 ## [1.1.1](https://github.com/SleLLl/dota2-friend/compare/v1.1.0...v1.1.1) (2025-02-08)
 
 
