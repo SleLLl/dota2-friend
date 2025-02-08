@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/SleLLl/dota2-friend/compare/v1.1.0...v1.1.1) (2025-02-08)
+
+
+### Bug Fixes
+
+* Change the way of window pre-setup ([abfedea](https://github.com/SleLLl/dota2-friend/commit/abfedea0bd8aadda0655fbaf277c404cbdf8d071))
+* update sounds ([8fd34c1](https://github.com/SleLLl/dota2-friend/commit/8fd34c124ccd3cf9486f133cf38ab3967494b59d))
+* update version ([5138a20](https://github.com/SleLLl/dota2-friend/commit/5138a202c8655c3ac02a3a5f64f1f6aaa2dd05c5))
+
 # [1.1.0](https://github.com/SleLLl/dota2-friend/compare/v1.0.3...v1.1.0) (2025-02-07)
 
 
