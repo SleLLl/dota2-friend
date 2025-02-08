@@ -23,8 +23,7 @@ const CreepsPullingWidget = (props: CreepsPullingWidgetProps) => {
   const [isTimeToShow, trigger] = useTimeBasedAction({
     time: 3000,
     callback: () => {
-      if (!isSoundWidgetDisabled)
-        SoundQueue.enqueue('/sounds/Pud_ability_hook_miss_03_ru.mp3');
+      if (!isSoundWidgetDisabled) SoundQueue.enqueue('/sounds/creepsPulling.mp3');
     },
   });
 

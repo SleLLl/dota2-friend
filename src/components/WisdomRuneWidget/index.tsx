@@ -24,7 +24,7 @@ const WisdomRuneWidget = (props: WisdomRuneWidgetProps) => {
     time: 3000,
     callback: () => {
       if (!isSoundWidgetDisabled)
-        SoundQueue.enqueue('/sounds/Pud_ability_hook_06_ru.mp3');
+        SoundQueue.enqueue('/sounds/wisdom.mp3');
     },
   });
 
