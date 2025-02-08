@@ -2,7 +2,7 @@
 
 ![Dota 2 Friend Banner](/public/app-icon.png)
 
-**Dota 2 Friend** is a lightweight, cross-platform desktop app built with Tauri to elevate your Dota 2 gameplay. Perfect for both new and veteran players, it provides real-time alerts, strategic timings, and data-driven insights to dominate the battlefield. 🏆
+**Dota 2 Friend** is a lightweight, desktop app built with Tauri to elevate your Dota 2 gameplay. Perfect for both new and veteran players, it provides real-time alerts, strategic timings, and data-driven insights to dominate the battlefield. 🏆
 
 ---
 
@@ -41,10 +41,10 @@
 
 ### Available Pre-Built Binaries
 
-- **Windows Installer (.exe)**: [Dota.2.friend_1.1.1_x64-setup.exe](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.1_x64-setup.exe)
-  - Signature: [Dota.2.friend_1.1.1_x64-setup.exe.sig](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.1_x64-setup.exe.sig)
-- **Windows MSI Package**: [Dota.2.friend_1.1.1_x64_en-US.msi](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.1_x64_en-US.msi)
-  - Signature: [Dota.2.friend_1.1.1_x64_en-US.msi.sig](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.1_x64_en-US.msi.sig)
+- **Windows Installer (.exe)**: [Dota.2.friend_1.1.2_x64-setup.exe](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.2_x64-setup.exe)
+  - Signature: [Dota.2.friend_1.1.2_x64-setup.exe.sig](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.2_x64-setup.exe.sig)
+- **Windows MSI Package**: [Dota.2.friend_1.1.2_x64_en-US.msi](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.2_x64_en-US.msi)
+  - Signature: [Dota.2.friend_1.1.2_x64_en-US.msi.sig](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.2_x64_en-US.msi.sig)
 
 Check out previous versions [here](https://github.com/SleLLl/dota2-friend/releases).
 
