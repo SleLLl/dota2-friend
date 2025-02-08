@@ -58,11 +58,8 @@ Check out previous versions [here](https://github.com/SleLLl/dota2-friend/releas
 
 ---
 
-## ⚔️ App Preview
-<video width="320" height="240" controls>
-  <source src="/demo/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+## 🎮 App Preview
+![App Preview](/demo/demo.gif)
 
 ---
 
