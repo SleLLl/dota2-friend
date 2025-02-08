@@ -41,10 +41,10 @@
 
 ### Available Pre-Built Binaries
 
-- **Windows Installer (.exe)**: [Dota.2.friend_1.1.0_x64-setup.exe](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.0_x64-setup.exe)
-  - Signature: [Dota.2.friend_1.1.0_x64-setup.exe.sig](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.0_x64-setup.exe.sig)
-- **Windows MSI Package**: [Dota.2.friend_1.1.0_x64_en-US.msi](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.0_x64_en-US.msi)
-  - Signature: [Dota.2.friend_1.1.0_x64_en-US.msi.sig](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.0_x64_en-US.msi.sig)
+- **Windows Installer (.exe)**: [Dota.2.friend_1.1.1_x64-setup.exe](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.1_x64-setup.exe)
+  - Signature: [Dota.2.friend_1.1.1_x64-setup.exe.sig](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.1_x64-setup.exe.sig)
+- **Windows MSI Package**: [Dota.2.friend_1.1.1_x64_en-US.msi](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.1_x64_en-US.msi)
+  - Signature: [Dota.2.friend_1.1.1_x64_en-US.msi.sig](https://github.com/SleLLl/dota2-friend/releases/latest/download/Dota.2.friend_1.1.1_x64_en-US.msi.sig)
 
 Check out previous versions [here](https://github.com/SleLLl/dota2-friend/releases).
 
