@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import EventEmitter from 'eventemitter3';
 import { BehaviorSubject } from 'rxjs';
 import { io, Socket } from 'socket.io-client';

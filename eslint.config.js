@@ -41,4 +41,12 @@ export default [
       'simple-import-sort/exports': 'error',
     },
   },
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+    },
+  },
 ];

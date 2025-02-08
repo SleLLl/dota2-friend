@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { isTauri } from '@tauri-apps/api/core';
 
 export const withTauri = <T extends (...args: any[]) => any>(fn: T) => {

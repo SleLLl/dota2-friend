@@ -13,7 +13,6 @@ const setup = withTauri(async () => {
     const store = useAppStore.getState();
 
     if (isVisible && store.isUserOnboarded) {
-      await appWindow.hide();
       await router.navigate({
         to: '/',
       });

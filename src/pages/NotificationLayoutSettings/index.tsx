@@ -1,8 +1,8 @@
 import type { TourProps } from 'antd';
 import { Tour } from 'antd';
 
+import GameModeLayout from '../../components/GameModeLayout';
 import { useAppStore } from '../../store/app.ts';
-import GameModeLayout from '../GameModeLayout';
 import notificationPositionGif from './notification-position.gif';
 import settingsGif from './settings.gif';
 import styles from './styles.module.scss';

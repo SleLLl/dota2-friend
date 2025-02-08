@@ -23,8 +23,7 @@ const WisdomRuneWidget = (props: WisdomRuneWidgetProps) => {
   const [isTimeToShow, trigger] = useTimeBasedAction({
     time: 3000,
     callback: () => {
-      if (!isSoundWidgetDisabled)
-        SoundQueue.enqueue('/sounds/wisdom.mp3');
+      if (!isSoundWidgetDisabled) SoundQueue.enqueue('/sounds/wisdom.mp3');
     },
   });
 
